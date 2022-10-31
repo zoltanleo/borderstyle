@@ -55,6 +55,9 @@ begin
       else
         Self.BorderIcons:= Self.BorderIcons - [biMaximize];
     end;
+
+  if TObject(Sender).InheritsFrom(TCheckGroup) then
+    Self.Caption:= format('chahged item: %s', [CheckGroup1.Items.Strings[Index]]);
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
@@ -63,6 +66,7 @@ var
 begin
   for i:= 0 to Pred(CheckGroup1.Items.Count) do
     CheckGroup1ItemClick(Sender,i);
+
 end;
 
 end.
